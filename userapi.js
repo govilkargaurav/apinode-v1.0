@@ -6,6 +6,8 @@ var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 var dbo = '';
 
+const port  = process.env.PORT || 3000;
+
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -78,6 +80,6 @@ app.get('/allusers', function (req, res) {
 con.on('error', function (err) {
   console.log("[mysql error]", err);
 });
-app.listen(3000, () => {
-  console.log('app is listing at 3000');
+app.listen(port, () => {
+  console.log(`app is listing at ${port}`);
 });
